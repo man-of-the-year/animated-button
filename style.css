@@ -1,0 +1,60 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #000;
+}
+
+.button {
+  --width: 310px;
+  --height: 170px;
+  --begin: #ff0051;
+  --end: rgb(255, 0, 238);
+  
+  position: relative;
+  display: inline-block;
+  width: var(--width);
+  height: var(--height);
+  line-height: var(--height);
+  color: var(--begin);
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 24px;
+  letter-spacing: 5px;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  transition: 2s;
+  background: transparent;
+  border-color: transparent;
+}
+
+.button:hover,
+.button:focus {
+  color: var(--end);
+}
+
+.button__svg,
+.button__rect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  fill: none;
+}
+
+.button__rect {
+  stroke: var(--begin);
+  stroke-width: 5;
+  stroke-dasharray: var(--height) var(--width);
+  stroke-dashoffset: calc(2 * var(--width) + 2 * var(--height) + var(--height) / 2);
+  transition: 2s
+}
+
+.button:hover .button__rect,
+.button:focus .button__rect {
+  stroke: var(--end);
+  stroke-dashoffset: calc(var(--height) + var(--height) / 2);
+}
